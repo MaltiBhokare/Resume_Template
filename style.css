@@ -1,0 +1,245 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-image: url('pexels-mccutcheon-1191710.jpg'); */
+    background-color: antiquewhite;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+/* Form Section Styling */
+.form-section {
+    width: 40%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-section h2 {
+    font-size: 24px;
+    color: #283593;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #283593;
+    outline: none;
+}
+
+
+
+
+#edit-linkedin, #edit-github {
+    color: #333 !important; /* Dark gray color for the input text */
+}
+
+
+textarea {
+    resize: vertical;
+}
+
+input[type="email"], input[type="text"] {
+    height: 40px;
+}
+
+button {
+    background-color: #283593;
+    color: white;
+    font-size: 14px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e2a8a;
+}
+
+button[type="button"] {
+    margin-top: 10px;
+}
+
+#download-resume-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+/* Profile Picture Preview */
+.left-panel .photo {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid white;
+}
+
+/* Resume Preview Section Styling */
+.resume {
+    width: 60%;
+    background-color: #fff;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.left-panel {
+    background-color: #283593;
+    color: white;
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.left-panel h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.left-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-panel ul li {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.right-panel {
+    padding: 20px;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.right-panel h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #283593;
+}
+
+.right-panel h2 {
+    margin: 5px 0 20px;
+    font-size: 18px;
+    color: #6a6a6a;
+}
+
+.right-panel h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #283593;
+    border-bottom: 2px solid #283593;
+    padding-bottom: 5px;
+}
+
+.right-panel p, .right-panel ul li {
+    font-size: 14px;
+    color: #333;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.right-panel ul {
+    list-style: disc inside;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        margin: 0;
+        background-color: white;
+    }
+
+    .resume {
+        box-shadow: none;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+    }
+
+    .left-panel, .right-panel {
+        padding: 15px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .form-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .resume {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .right-panel h1 {
+        font-size: 24px;
+    }
+
+    .right-panel h2 {
+        font-size: 16px;
+    }
+
+    .right-panel h3 {
+        font-size: 18px;
+    }
+
+    input, textarea {
+        font-size: 16px;
+    }
+}

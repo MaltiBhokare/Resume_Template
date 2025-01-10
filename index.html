@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script> -->
+</head>
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2>Customize Your Resume</h2>
+            <form id="resume-form">
+                <!-- Basic Information -->
+                <label for="edit-name">Full Name</label>
+                <input type="text" id="edit-name" placeholder="Full Name" value="John Doe">
+
+                <label for="edit-job-title">Job Title</label>
+                <input type="text" id="edit-job-title" placeholder="Job Title" value="Software Engineer">
+
+                <label for="edit-email">Email</label>
+                <input type="email" id="edit-email" placeholder="example@domain.com" value="john.doe@example.com">
+
+                <label for="edit-phone">Phone</label>
+                <input type="text" id="edit-phone" placeholder="123-456-7890" value="123-456-7890">
+
+                <label for="edit-address">Address</label>
+                <input type="text" id="edit-address" placeholder="City, State, Country" value="New York, NY, USA">
+
+                <label for="profile-picture">Upload Profile Picture</label>
+                <input type="file" id="profile-picture" accept="image/*">
+
+                <!-- New Fields -->
+                <label for="edit-linkedin">LinkedIn</label>
+                <input type="url" id="edit-linkedin" placeholder="LinkedIn Profile" value="https://linkedin.com/in/johndoe">
+
+                <label for="edit-github">GitHub</label>
+                <input type="url" id="edit-github" placeholder="GitHub Profile" value="https://github.com/johndoe">
+
+                <label for="edit-certifications">Certifications</label>
+                <textarea id="edit-certifications" rows="2" placeholder="Certification | Issuer | Year">Certified Java Developer | Oracle | 2021</textarea>
+
+                <label for="edit-languages">Languages</label>
+                <textarea id="edit-languages" rows="2" placeholder="Language | Proficiency">English | Fluent</textarea>
+
+                <label for="edit-about">About Me</label>
+                <textarea id="edit-about" rows="3">Experienced software engineer with expertise...</textarea>
+
+                <label>Certifications</label>
+                <div id="certifications-container">
+                    <textarea class="edit-certifications" rows="2" placeholder="Certification | Issuer | Year">Certified Java Developer | Oracle | 2021</textarea>
+                </div>
+                <button type="button" id="add-certification-btn">Add Certification</button>
+
+                <label>Languages</label>
+                <div id="languages-container">
+                    <textarea class="edit-languages" rows="2" placeholder="Language | Proficiency">English | Fluent</textarea>
+                </div>
+                <button type="button" id="add-language-btn">Add Language</button>
+
+                <!-- Dynamic Sections -->
+                <label>Skills</label>
+                <div id="skills-container">
+                    <input type="text" class="edit-skills" placeholder="Skill" value="JavaScript">
+                </div>
+                <button type="button" id="add-skill-btn" class="add-btn">Add Skill</button>
+
+                <label>Education</label>
+                <div id="education-container">
+                    <textarea class="edit-education" rows="2" placeholder="Degree | Institution | Years">B.Sc. Computer Science | XYZ University | 2016-2020</textarea>
+                </div>
+                <button type="button" id="add-education-btn" class="add-btn">Add Education</button>
+
+                <label>Work Experience</label>
+                <div id="work-container">
+                    <textarea class="edit-work" rows="3" placeholder="Role | Company | Years | Responsibilities">Software Engineer | TechCorp | 2020-Present | Developed web apps</textarea>
+                </div>
+                <button type="button" id="add-work-btn" class="add-btn">Add Work Experience</button>
+
+                <button id="downloadBtn">Download Resume</button>
+
+            </form>
+        </div>
+
+        <!-- Resume Preview -->
+        <div class="resume">
+            <!-- Left Panel -->
+            <div class="left-panel">
+                <div class="photo" id="profile-photo"></div>
+                <div class="contact">
+                    <h3>Contact</h3>
+                    <p id="email">john.doe@example.com</p>
+                    <p id="phone">123-456-7890</p>
+                    <p id="address">New York, NY, USA</p>
+                    <p id="linkedin">LinkedIn: <a href="#" id="linkedin-link">https://linkedin.com/in/johndoe</a></p>
+                    <p id="github">GitHub: <a href="#" id="github-link">https://github.com/johndoe</a></p>
+                </div>
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <ul id="skills-list">
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right Panel -->
+            <div class="right-panel">
+                <h1 id="name">John Doe</h1>
+                <h2 id="job-title">Software Engineer</h2>
+                <div class="about">
+                    <h3>About Me</h3>
+                    <p id="about-text">Experienced software engineer with expertise...</p>
+                </div>
+                <div class="certifications">
+                    <h3>Certifications</h3>
+                    <ul id="certifications-list">
+                        <li>Certified Java Developer | Oracle | 2021</li>
+                    </ul>
+                </div>
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <ul id="languages-list">
+                        <li>English | Fluent</li>
+                    </ul>
+                </div>
+
+                <div class="education">
+                    <h3>Education</h3>
+                    <ul id="education-list">
+                        <li><strong>B.Sc. Computer Science</strong><br>XYZ University | 2016-2020</li>
+                    </ul>
+                </div>
+                <div class="work-experience">
+                    <h3>Work Experience</h3>
+                    <div id="work-list">
+                        <div class="job">
+                            <p><strong>Software Engineer</strong> | TechCorp</p>
+                            <p>2020-Present</p>
+                            <ul>
+                                <li>Developed web apps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
